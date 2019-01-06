@@ -65,9 +65,9 @@ Returns a new hconcat or vconcat spec.
 
 &emsp;&emsp;`sub`: spec to be faceted
 
-Use `row` and `column` (see [channel](#channel_method)) to set the channels.
+Use `row` and `column` (see [channel](#method_channel)) to set the channels.
 
-Use [data](#data_method) to set the data property of a facet. If a facet does not have a data property, it uses the data of the first unit in its inner spec that has a data property &mdash; all units in the inner spec that use this data ignore their own data property.
+Use [data](#method_data) to set the data property of a facet. If a facet does not have a data property, it uses the data of the first unit in its inner spec that has a data property &mdash; all units in the inner spec that use this data ignore their own data property.
 
 Note: nested facets are not currently supported in Vizsla.
 
