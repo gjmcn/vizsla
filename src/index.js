@@ -53,6 +53,7 @@
         this.spec.encoding = {};
         this.spec.mark = { type: 'point' };
       }
+      else if (type === 'layer') this.spec.encoding = {};
       else if (type === 'facet') this.spec.facet = {};
       else if (type === 'repeat') {
         this.spec.repeat = {};
@@ -188,10 +189,12 @@
       'shape', 'label', 'tooltip', 'href', 'key', 'order', 'detail', 'row', 'column'
     ]);
 
+    const validSpecTypes = new Set(['unit', 'layer', 'facet']);
+
     //main channel method
     Vizsla.prototype.channel = function(chn, field, type = 'q', ops) {
-      if (this.type !== 'unit' && this.type !== 'facet') {
-        throw Error('unit or facet spec expected');
+      if (!validSpecTypes.has(this.type)) {
+        throw Error(`${this.type} spec cannot have channels`);
       }
       if (!channels.has(chn)) throw Error('invalid channel');
       if (this.type === 'facet' && chn !== 'row' && chn !== 'column') {
@@ -256,7 +259,9 @@
 
   //projection
   Vizsla.prototype.projection = function(type = 'mercator', ops) {
-    if (this.type !== 'unit') throw Error('unit spec expected');
+    if (this.type !== 'unit' && this.type !== 'layer') {
+      throw Error('unit or layer spec expected');
+    }
     if (type === null) delete this.spec.projection;
     else {
       const obj = { type };

@@ -141,7 +141,7 @@ Mark methods return the spec.
 
 <a name="method_channel" href="#method_channel">#</a> `spec.channel(chn, field, type = 'q', ops)`
 
-&emsp;&emsp;spec type: unit or, for `row` and `column` channels only, facet
+&emsp;&emsp;spec type: unit, layer, facet
 
 &emsp;&emsp;`chn`: string, channel name
 
@@ -203,7 +203,7 @@ Returns the spec.
 
 <a name="method_projection" href="#method_projection">#</a> `spec.projection(type = 'mercator', ops)`
 
-&emsp;&emsp;spec type: unit
+&emsp;&emsp;spec type: unit, layer
 
 &emsp;&emsp;type: string
 
@@ -258,16 +258,16 @@ Returns the spec.
 
 The following methods set the property of the same name to the argument and return the spec.
 
-| Name | Method of |
+| Name | Spec type |
 | ---- | --------- |
-| <code>description(<i>string</i>)</code> | all |
-| <code>title(<i>string</i>)</code> | all |
-| <code>name(<i>string</i>)</code> | all (only used at top-level)|
-| <code>$schema(<i>string</i>)</code> | all (only used at top-level) |
-| <code>background(<i>string</i>)</code> | all (only used at top-level) |
-| <code>padding(<i>number/object</i>)</code> | all (only used at top-level) |
-| <code>autosize(<i>string/object</i>)</code> | all (only used at top-level) |
-| <code>config(<i>object</i>)</code> | all (only used at top-level) |
+| <code>description(<i>string</i>)</code> | any |
+| <code>title(<i>string</i>)</code> | any |
+| <code>name(<i>string</i>)</code> | any (only used at top-level)|
+| <code>$schema(<i>string</i>)</code> | any (only used at top-level) |
+| <code>background(<i>string</i>)</code> | any (only used at top-level) |
+| <code>padding(<i>number/object</i>)</code> | any (only used at top-level) |
+| <code>autosize(<i>string/object</i>)</code> | any (only used at top-level) |
+| <code>config(<i>object</i>)</code> | any (only used at top-level) |
 | <code>resolve(<i>object</i>)</code> | layer, hconcat, vconcat, facet, repeat |
 | <code>center(<i>boolean/object</i>)</code> | hconcat, vconcat, facet, repeat |
 | <code>spacing(<i>number/object</i>)</code> | hconcat, vconcat, facet, repeat |
