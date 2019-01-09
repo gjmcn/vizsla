@@ -65,7 +65,7 @@ Returns a new hconcat or vconcat spec.
 
 &emsp;&emsp;`sub`: spec to be faceted
 
-Use `row` and `column` (see [channel](#method_channel)) to set the channels.
+Use `row` and `column` (see [encode](#method_encode)) to set the channels.
 
 Use [data](#method_data) to set the data property of a facet. If a facet does not have a data property, it uses the data of the first unit in its inner spec that has a data property &mdash; all units in the inner spec that use this data ignore their own data property.
 
@@ -139,7 +139,7 @@ Mark methods return the spec.
 
 ---
 
-<a name="method_channel" href="#method_channel">#</a> `spec.channel(chn, field, type = 'q', ops)`
+<a name="method_encode" href="#method_encode">#</a> `spec.encode(chn, field, type = 'q', ops)`
 
 &emsp;&emsp;spec type: unit, layer, facet
 
@@ -153,7 +153,7 @@ Mark methods return the spec.
 
 Set channel `chn`: field to `field`, type to `type` plus any additional properties specified in `ops`.
 
-There are also convenience channel methods:
+There are also convenience methods:
 
 `x`, `y`, `x2`, `y2`, `longitude`, `latitude`, `longitude2`, `latitude2`,
 `color`, `opacity`, `fillOpacity`, `strokeOpacity`, `strokeWidth`, `size`,
@@ -162,11 +162,11 @@ There are also convenience channel methods:
 ```js
 //these are equivalent
 vz(cars).x('Horsepower');
-vz(cars).channel('x', 'Horsepower');
+vz(cars).encode('x', 'Horsepower');
 
 //these are equivalent
 vz(cars).x('Horsepower', 'q', ops);
-vz(cars).channel('x', 'Horsepower', 'q', ops);
+vz(cars).encode('x', 'Horsepower', 'q', ops);
 ```
 
 The `label` method actually corresponds to the text channel &mdash; `text` is a mark method.
@@ -185,7 +185,7 @@ vz().y(true, 'q', {title: 'Total'});
 vz().y(false, 'q', {aggregate: 'count', title: 'Total'});
 ```
 
-Channel methods return the spec.
+These methods return the spec.
 
 ---
 
@@ -344,9 +344,9 @@ The `plot` property is initially `undefined`. It should be set to a function tha
 
 * Pass `null` to delete a spec property:
 
-  * channel methods: `spec.channel('x', null)` or `spec.x(null)`
+  * `encode` method: `spec.encode('x', null)`
 
-  * other methods: pass `null` as the first argument; e.g. `spec.mark(null)` or `spec.inner(null)`
+  * other methods: pass `null` as the first argument; e.g. `spec.x(null)` or `spec.mark(null)` or `spec.inner(null)`
 
 * Spec objects have the structure:
 

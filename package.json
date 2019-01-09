@@ -1,6 +1,6 @@
 {
   "name": "@gjmcn/vizsla",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple JavaScript API for Vega-Lite.",
   "main": "dist/index.js",
   "scripts": {

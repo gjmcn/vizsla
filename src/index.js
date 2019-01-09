@@ -191,8 +191,8 @@
 
     const validSpecTypes = new Set(['unit', 'layer', 'facet']);
 
-    //main channel method
-    Vizsla.prototype.channel = function(chn, field, type = 'q', ops) {
+    //encode
+    Vizsla.prototype.encode = function(chn, field, type = 'q', ops) {
       if (!validSpecTypes.has(this.type)) {
         throw Error(`${this.type} spec cannot have channels`);
       }
@@ -220,7 +220,7 @@
     //convenience channel methods
     for (let c of channels) {
       Vizsla.prototype[c] = function(field, type, ops) {
-        this.channel(c, field, type, ops);
+        this.encode(c, field, type, ops);
         return this;
       };
     }
