@@ -1,3 +1,9 @@
+---
+
+__Note:__ Vega-Lite now has its own [JavaScript API](https://github.com/vega/vega-lite-api/) so Vizsla is no longer in active development.
+
+---
+
 Vizsla is a simple JavaScript API for [Vega-Lite](https://vega.github.io/vega-lite/):
 
 ```js
